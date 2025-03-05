@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://jplgmnn7k3vd"]
+
+[ext_resource type="PackedScene" uid="uid://c7b5r7iomkqwi" path="res://game/interact_body/interact_item/interact_item_class/interact_item.tscn" id="1_jdd0i"]
+[ext_resource type="Resource" uid="uid://c0vw1wkw3geyx" path="res://game/inventory/item/amulet.tres" id="2_tnjse"]
+
+[node name="Amulet" instance=ExtResource("1_jdd0i")]
+item = ExtResource("2_tnjse")

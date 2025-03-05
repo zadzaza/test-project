@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbw6msemn7twy"]
+
+[ext_resource type="PackedScene" uid="uid://c7b5r7iomkqwi" path="res://game/interact_body/interact_item/interact_item_class/interact_item.tscn" id="1_mtdiw"]
+[ext_resource type="Resource" uid="uid://chb6d5vn3prar" path="res://game/inventory/item/key.tres" id="2_558u2"]
+[ext_resource type="Script" path="res://game/interact_body/interact_item/key.gd" id="2_cnqes"]
+
+[node name="Key" instance=ExtResource("1_mtdiw")]
+script = ExtResource("2_cnqes")
+item = ExtResource("2_558u2")

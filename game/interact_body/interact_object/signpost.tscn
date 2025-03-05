@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6h4c1ao0gt1"]
+
+[ext_resource type="PackedScene" uid="uid://dr4opwat3fsng" path="res://game/interact_body/interact_object/interact_object_class/interact_object.tscn" id="1_ub1sh"]
+[ext_resource type="Texture2D" uid="uid://ji0o1id8yjdi" path="res://sprites/Exterior.png" id="2_qcokl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8yj1"]
+atlas = ExtResource("2_qcokl")
+region = Rect2(1, 18, 14, 14)
+
+[node name="Signpost" instance=ExtResource("1_ub1sh")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_j8yj1")
+offset = Vector2(0, 0)
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+scale = Vector2(1.4, 1.4)
+
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2(0, 8.01)
+scale = Vector2(0.175, 0.175)

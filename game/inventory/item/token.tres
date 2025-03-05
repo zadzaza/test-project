@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bp2dyo0jlkevt"]
+
+[ext_resource type="Texture2D" uid="uid://bsskjp7doe24b" path="res://sprites/items/token.png" id="1_i5iev"]
+[ext_resource type="Script" path="res://game/inventory/item/item_class/item.gd" id="2_rm06q"]
+
+[resource]
+script = ExtResource("2_rm06q")
+name = "Жетон"
+description = "Круглый кусок металла с числом 14
+Нельзя использовать"
+usable = false
+use_count = 1
+image = ExtResource("1_i5iev")

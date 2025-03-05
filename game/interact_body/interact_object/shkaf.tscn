@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://f2dctwws2mx5"]
+
+[ext_resource type="PackedScene" uid="uid://dr4opwat3fsng" path="res://game/interact_body/interact_object/interact_object_class/interact_object.tscn" id="1_p8ae8"]
+[ext_resource type="Texture2D" uid="uid://00o2cni4fx4x" path="res://sprites/Interior.png" id="2_tylmh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp85w"]
+atlas = ExtResource("2_tylmh")
+region = Rect2(1.88328, 95.1568, 28.1167, 34.8432)
+
+[node name="Shkaf" instance=ExtResource("1_p8ae8")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_jp85w")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+scale = Vector2(1.94, 1.94)
+
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2(0, 8.57)
+scale = Vector2(1.735, 0.56)

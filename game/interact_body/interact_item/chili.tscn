@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://81hxvktcjkq"]
+
+[ext_resource type="PackedScene" uid="uid://c7b5r7iomkqwi" path="res://game/interact_body/interact_item/interact_item_class/interact_item.tscn" id="1_cumrr"]
+[ext_resource type="Resource" uid="uid://co4aw58ql4kwe" path="res://game/inventory/item/chili.tres" id="2_ejyli"]
+
+[node name="Chili" instance=ExtResource("1_cumrr")]
+item = ExtResource("2_ejyli")

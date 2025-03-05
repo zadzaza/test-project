@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EffectItem" load_steps=3 format=3 uid="uid://c0vw1wkw3geyx"]
+
+[ext_resource type="Texture2D" uid="uid://batjmnxmg3h6i" path="res://sprites/items/amulet.png" id="1_ac3ay"]
+[ext_resource type="Script" path="res://game/inventory/item/item_class/effect_item.gd" id="1_u1a7g"]
+
+[resource]
+script = ExtResource("1_u1a7g")
+health_effect = -9
+max_health_effect = 1
+name = "Амулет"
+description = "Уменьшает здоровье на 9
+Увеличивает максимальное здоровье на 1
+Не расходуется при использовании"
+usable = true
+is_infinite = true
+image = ExtResource("1_ac3ay")

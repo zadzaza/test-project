@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7c0xh0sf51yf"]
+
+[ext_resource type="PackedScene" uid="uid://dd7ihthosjsc1" path="res://game/house/house.tscn" id="1_b5poy"]
+[ext_resource type="Texture2D" uid="uid://do3ep7avaqnms" path="res://sprites/house/win2.png" id="2_ubtmo"]
+
+[node name="House1" instance=ExtResource("1_b5poy")]
+
+[node name="Door" parent="Building" index="1"]
+position = Vector2(-9, 0)
+
+[node name="Win2" type="Sprite2D" parent="Building" index="2"]
+position = Vector2(11, -4)
+texture = ExtResource("2_ubtmo")

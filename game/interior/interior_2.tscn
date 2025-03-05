@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=4 uid="uid://b3bpaqsikyiyi"]
+
+[ext_resource type="PackedScene" uid="uid://bchymflcjf7kg" path="res://game/interior/interior.tscn" id="1_y1oii"]
+[ext_resource type="TileSet" uid="uid://daikb1e6ia3mm" path="res://res/tile_set.tres" id="2_bstvt"]
+[ext_resource type="PackedScene" uid="uid://bb6s1616r8ua" path="res://game/interact_body/interact_object/bed.tscn" id="2_wek60"]
+[ext_resource type="PackedScene" uid="uid://f2dctwws2mx5" path="res://game/interact_body/interact_object/shkaf.tscn" id="4_br65y"]
+[ext_resource type="PackedScene" uid="uid://81hxvktcjkq" path="res://game/interact_body/interact_item/chili.tscn" id="5_dtqnt"]
+[ext_resource type="PackedScene" uid="uid://cbw6msemn7twy" path="res://game/interact_body/interact_item/key.tscn" id="6_qo8ux"]
+
+[node name="Interior" instance=ExtResource("1_y1oii")]
+
+[node name="TileMapLayer" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAIAAQAMAAYAAAABAAIAAQAKAAkAAAD+/wIAAQAIAAwAAAD9/wIAAQAKAAkAAAD8/wIAAQAMAAAAAAACAAIAAQAOAAAAAAACAAEAAQAMAAkAAAACAAAAAQAMAAkAAAACAP//AQAMAAkAAAACAP7/AQAMAAkAAAD8//7/AQAMAAkAAAD8////AQAMAAkAAAD8/wAAAQAMAAkAAAD8/wEAAQAMAAkAAAD8//3/AQAIAAAAAAD9//3/AQAKAAkAAAD+//3/AQAKAAkAAAD///3/AQAKAAkAAAAAAP3/AQAKAAkAAAABAP3/AQAKAAkAAAACAP3/AQAKAAAAAAABAP7/AQAKAAoAAAAAAP7/AQAKAAoAAAD///7/AQAKAAoAAAD+//7/AQAKAAoAAAD9//7/AQAKAAoAAAABAAEAAAAGAAAAAAABAAAAAAAHAAIAAAABAP//AAAGAAEAAAAAAAEAAAAFAAIAAAAAAAAAAAAHAAEAAAAAAP//AAAGAAEAAAD//wEAAAAFAAIAAAD//wAAAAAGAAAAAAD/////AAAHAAIAAAD+/wEAAAAGAAAAAAD+/wAAAAAGAAIAAAD+////AAAFAAEAAAD9/wEAAAAGAAAAAAD9/wAAAAAGAAAAAAD9////AAAFAAEAAAD//wIAAAAGAAEAAAA=")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAD///7/BQAJAAEAAAD+//7/BQAJAAUAAAD//wEABQAJAAQAAAA=")
+tile_set = ExtResource("2_bstvt")
+
+[node name="Bed" parent="YSort" index="1" instance=ExtResource("2_wek60")]
+position = Vector2(19, -17)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Shkaf" parent="YSort" index="2" instance=ExtResource("4_br65y")]
+position = Vector2(-32, -21)
+interact_text = Array[String](["Почему безногий не
+может собрать шкаф?", "Потому что инструкция
+пошаговая", "- Сборник плохих анекдотов"])
+
+[node name="Chili" parent="YSort" index="3" instance=ExtResource("5_dtqnt")]
+position = Vector2(-32, -3)
+
+[node name="Key" parent="YSort" index="4" instance=ExtResource("6_qo8ux")]
+position = Vector2(-4, -8)

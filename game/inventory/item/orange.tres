@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EffectItem" load_steps=4 format=3 uid="uid://518e6ko2l4td"]
+
+[ext_resource type="Texture2D" uid="uid://c0kcefgx2dajd" path="res://sprites/items/vegetable &fruit（.png" id="1_7i86k"]
+[ext_resource type="Script" path="res://game/inventory/item/item_class/effect_item.gd" id="1_ma3pj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f24af"]
+atlas = ExtResource("1_7i86k")
+region = Rect2(7, 41, 15, 15)
+
+[resource]
+script = ExtResource("1_ma3pj")
+health_effect = 1
+max_health_effect = 1
+name = "Апельсин"
+description = "Увеличивает максимальное здоровье на 1
+Увеличивает здоровье на 1"
+usable = true
+is_infinite = false
+image = SubResource("AtlasTexture_f24af")

@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cvd4v2gpxfp40"]
+
+[ext_resource type="FontFile" uid="uid://dit04ya23hcbe" path="res://res/PixelCode.ttf" id="1_efh0k"]
+
+[resource]
+Button/colors/font_outline_color = Color(0.188235, 0.105882, 0.0823529, 1)
+Button/constants/outline_size = 3
+Button/fonts/font = ExtResource("1_efh0k")
+Label/colors/font_outline_color = Color(0.188235, 0.105882, 0.0823529, 1)
+Label/constants/outline_size = 3
+Label/fonts/font = ExtResource("1_efh0k")

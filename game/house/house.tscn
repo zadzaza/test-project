@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=3 uid="uid://dd7ihthosjsc1"]
+
+[ext_resource type="Texture2D" uid="uid://t0rnwdccc1a6" path="res://sprites/house/door_closed.png" id="1_0sbr7"]
+[ext_resource type="Script" path="res://game/house/house.gd" id="1_s4rfx"]
+[ext_resource type="Texture2D" uid="uid://d3sc8t7ktnhit" path="res://sprites/house/house.png" id="2_bna0w"]
+[ext_resource type="Texture2D" uid="uid://ck4b8uav0ly6l" path="res://sprites/house/door_open.png" id="2_r6ebi"]
+[ext_resource type="Texture2D" uid="uid://btstm2eunsdhm" path="res://sprites/house/ladder.png" id="5_c3iqy"]
+[ext_resource type="Theme" uid="uid://cvd4v2gpxfp40" path="res://res/theme.tres" id="6_8srtx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ticat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0sbr7")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r6ebi")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5n0vt"]
+size = Vector2(20, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scbcx"]
+size = Vector2(22, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1yhu"]
+size = Vector2(60, 33)
+
+[node name="House" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_s4rfx")
+
+[node name="Building" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Building"]
+position = Vector2(0, -32.5)
+texture = ExtResource("2_bna0w")
+
+[node name="Door" type="Node2D" parent="Building"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Building/Door"]
+sprite_frames = SubResource("SpriteFrames_ticat")
+animation = &"close"
+
+[node name="Ladder" type="Sprite2D" parent="Building/Door"]
+position = Vector2(0, 15)
+texture = ExtResource("5_c3iqy")
+
+[node name="EnterArea" type="Area2D" parent="Building/Door"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building/Door/EnterArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_5n0vt")
+
+[node name="OpenArea" type="Area2D" parent="Building/Door"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building/Door/OpenArea"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_scbcx")
+debug_color = Color(0.839445, 0.314784, 0.570753, 0.42)
+
+[node name="Spawn" type="Marker2D" parent="Building/Door"]
+position = Vector2(0, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_i1yhu")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Confirm" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_8srtx")
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Confirm"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Вы хотите потратить 1 ключ и открыть дверь?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Confirm"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="YesBtn" type="Button" parent="CanvasLayer/Confirm/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Да"
+
+[node name="NoBtn" type="Button" parent="CanvasLayer/Confirm/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Нет"
+
+[connection signal="body_entered" from="Building/Door/EnterArea" to="." method="_on_enter_area_body_entered"]
+[connection signal="body_entered" from="Building/Door/OpenArea" to="." method="_on_open_area_body_entered"]
+[connection signal="body_exited" from="Building/Door/OpenArea" to="." method="_on_open_area_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Confirm/HBoxContainer/YesBtn" to="." method="_on_yes_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Confirm/HBoxContainer/NoBtn" to="." method="_on_no_btn_pressed"]

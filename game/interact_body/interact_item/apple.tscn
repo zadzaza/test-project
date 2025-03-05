@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b65hfl77w3qgx"]
+
+[ext_resource type="PackedScene" uid="uid://c7b5r7iomkqwi" path="res://game/interact_body/interact_item/interact_item_class/interact_item.tscn" id="1_agd1s"]
+[ext_resource type="Resource" uid="uid://cmmoatoe1r6ys" path="res://game/inventory/item/apple.tres" id="2_ge00y"]
+
+[node name="Apple" instance=ExtResource("1_agd1s")]
+item = ExtResource("2_ge00y")

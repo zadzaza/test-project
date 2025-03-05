@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7b5r7iomkqwi"]
+
+[ext_resource type="PackedScene" uid="uid://dnr2fhai8myy2" path="res://game/interact_body/interact_body.tscn" id="1_ugkqo"]
+[ext_resource type="Script" path="res://game/interact_body/interact_item/interact_item_class/interact_item.gd" id="2_sh7su"]
+
+[node name="InteractItem" instance=ExtResource("1_ugkqo")]
+collision_layer = 4
+script = ExtResource("2_sh7su")
+item = null
+
+[node name="InteractArea" parent="." index="0"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="." index="1"]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(0.675, 0.675)
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]

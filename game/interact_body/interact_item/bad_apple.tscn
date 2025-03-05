@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://biqogvoh8yv54"]
+
+[ext_resource type="PackedScene" uid="uid://c7b5r7iomkqwi" path="res://game/interact_body/interact_item/interact_item_class/interact_item.tscn" id="1_rqvtc"]
+[ext_resource type="Resource" uid="uid://c73u3tyy5wylw" path="res://game/inventory/item/bad_apple.tres" id="2_2cd5u"]
+
+[node name="ForbiddenFruit" instance=ExtResource("1_rqvtc")]
+item = ExtResource("2_2cd5u")

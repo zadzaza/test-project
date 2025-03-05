@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EffectItem" load_steps=4 format=3 uid="uid://cmmoatoe1r6ys"]
+
+[ext_resource type="Texture2D" uid="uid://c0kcefgx2dajd" path="res://sprites/items/vegetable &fruit（.png" id="1_cikvh"]
+[ext_resource type="Script" path="res://game/inventory/item/item_class/effect_item.gd" id="2_urjkh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km0sb"]
+atlas = ExtResource("1_cikvh")
+region = Rect2(38, 25.0274, 13, 15.9726)
+
+[resource]
+script = ExtResource("2_urjkh")
+health_effect = 1
+max_health_effect = 0
+name = "Яблоко"
+description = "Увеличивает здоровье на 1"
+usable = true
+is_infinite = false
+image = SubResource("AtlasTexture_km0sb")

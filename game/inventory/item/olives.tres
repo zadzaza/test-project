@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EffectItem" load_steps=4 format=3 uid="uid://cvmbb6ljbuwv4"]
+
+[ext_resource type="Texture2D" uid="uid://c0kcefgx2dajd" path="res://sprites/items/vegetable &fruit（.png" id="1_5b6hv"]
+[ext_resource type="Script" path="res://game/inventory/item/item_class/effect_item.gd" id="1_aets2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8071v"]
+atlas = ExtResource("1_5b6hv")
+region = Rect2(55, 91, 13, 13)
+
+[resource]
+script = ExtResource("1_aets2")
+health_effect = 0
+max_health_effect = -10
+name = "Оливки"
+description = "Уменьшает максимальное здоровье на 10"
+usable = true
+is_infinite = false
+image = SubResource("AtlasTexture_8071v")

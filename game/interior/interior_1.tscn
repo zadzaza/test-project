@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=4 uid="uid://bdnd6uxpaygce"]
+
+[ext_resource type="PackedScene" uid="uid://bchymflcjf7kg" path="res://game/interior/interior.tscn" id="1_yqhtc"]
+[ext_resource type="PackedScene" uid="uid://bb6s1616r8ua" path="res://game/interact_body/interact_object/bed.tscn" id="2_txors"]
+[ext_resource type="PackedScene" uid="uid://cbw6msemn7twy" path="res://game/interact_body/interact_item/key.tscn" id="3_kq2vc"]
+[ext_resource type="PackedScene" uid="uid://bh0yya0orp2d8" path="res://game/interact_body/interact_item/olives.tscn" id="5_5qb7h"]
+[ext_resource type="TileSet" uid="uid://daikb1e6ia3mm" path="res://res/tile_set.tres" id="5_eb4on"]
+[ext_resource type="PackedScene" uid="uid://j7mcu1gy3kjk" path="res://game/interact_body/interact_item/orange.tscn" id="6_gh2k8"]
+[ext_resource type="PackedScene" uid="uid://gnwiiljamwmn" path="res://game/interact_body/interact_item/token.tscn" id="7_0srsj"]
+
+[node name="Interior1" instance=ExtResource("1_yqhtc")]
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.215173, 0.416444, 0.298814, 1)
+
+[node name="TileMapLayer" parent="." index="1"]
+tile_map_data = PackedByteArray("AAD+/wIAAQAGAAYAAAD9/wIAAQAEAAAAAAAAAAIAAQAEAAYAAAABAAIAAQACAAkAAAACAAIAAQACAAkAAAD9//7/AQAEAAkAAAD9////AQAEAAkAAAD9/wAAAQAEAAkAAAD9/wEAAQAEAAkAAAADAP7/AQAEAAkAAAADAP//AQAEAAkAAAADAAAAAQAEAAkAAAADAAEAAQAEAAkAAAADAAIAAQAGAAAAAAACAAEAAAAGAAIAAAACAAAAAAAFAAIAAAACAP//AAAHAAEAAAABAAEAAAAGAAAAAAABAAAAAAAGAAIAAAABAP//AAAHAAEAAAAAAAEAAAAGAAAAAAAAAAAAAAAGAAAAAAAAAP//AAAHAAAAAAD//wEAAAAHAAIAAAD//wAAAAAFAAIAAAD/////AAAHAAIAAAD+/wEAAAAHAAIAAAD+/wAAAAAGAAAAAAD+////AAAGAAEAAAD9//3/AQAAAAAAAAD+//3/AQACAAkAAAD///3/AQACAAkAAAAAAP3/AQACAAkAAAABAP3/AQACAAkAAAACAP3/AQACAAkAAAADAP3/AQACAAAAAAD+//7/AQACAAoAAAD///7/AQACAAoAAAAAAP7/AQACAAoAAAABAP7/AQACAAoAAAACAP7/AQACAAoAAAD//wIAAAAGAAEAAAA=")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." index="2"]
+z_index = 1
+tile_map_data = PackedByteArray("AAABAAAABQAKAAEAAAAAAP7/BQAJAAUAAAABAP7/BQAJAAAAAAA=")
+tile_set = ExtResource("5_eb4on")
+
+[node name="Bed" parent="YSort" index="1" instance=ExtResource("2_txors")]
+position = Vector2(-19, -14)
+interact_text = Array[String](["Прилечь бы...", "Но надо делать тестовое..."])
+
+[node name="Key" parent="YSort" index="2" instance=ExtResource("3_kq2vc")]
+position = Vector2(3, -11)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="YSort" index="3"]
+tile_set = ExtResource("5_eb4on")
+
+[node name="Olives" parent="." index="6" instance=ExtResource("5_5qb7h")]
+position = Vector2(21, -11)
+
+[node name="Orange" parent="." index="7" instance=ExtResource("6_gh2k8")]
+position = Vector2(36, -6)
+
+[node name="Token" parent="." index="8" instance=ExtResource("7_0srsj")]
+position = Vector2(35, 23)

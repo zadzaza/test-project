@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://mqmph21ut2n8"]
+
+[node name="YSort" type="Node2D" groups=["ysort"]]
+y_sort_enabled = true

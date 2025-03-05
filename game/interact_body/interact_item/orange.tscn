@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://j7mcu1gy3kjk"]
+
+[ext_resource type="PackedScene" uid="uid://c7b5r7iomkqwi" path="res://game/interact_body/interact_item/interact_item_class/interact_item.tscn" id="1_dtxv8"]
+[ext_resource type="Resource" uid="uid://518e6ko2l4td" path="res://game/inventory/item/orange.tres" id="2_2a53t"]
+
+[node name="Orange" instance=ExtResource("1_dtxv8")]
+item = ExtResource("2_2a53t")

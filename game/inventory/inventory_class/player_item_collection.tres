@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemCollection" load_steps=3 format=3 uid="uid://pe6aqxj5bsk4"]
+
+[ext_resource type="Script" path="res://game/inventory/inventory_class/slot.gd" id="1_r07ow"]
+[ext_resource type="Script" path="res://game/inventory/inventory_class/item_collection.gd" id="2_3t28a"]
+
+[resource]
+script = ExtResource("2_3t28a")
+collection = Array[ExtResource("1_r07ow")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])

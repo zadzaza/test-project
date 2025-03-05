@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbobrpn3mj0wf"]
+
+[ext_resource type="PackedScene" uid="uid://c7b5r7iomkqwi" path="res://game/interact_body/interact_item/interact_item_class/interact_item.tscn" id="1_nfmbj"]
+[ext_resource type="Resource" uid="uid://dvs3vrgk2hngw" path="res://game/inventory/item/alarm_potion.tres" id="2_mea2k"]
+
+[node name="AlarmPotion" instance=ExtResource("1_nfmbj")]
+item = ExtResource("2_mea2k")

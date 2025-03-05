@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dvs3vrgk2hngw"]
+
+[ext_resource type="Script" path="res://game/inventory/item/alarm_potion.gd" id="1_aau5c"]
+[ext_resource type="Texture2D" uid="uid://dashqkfc6th1h" path="res://sprites/items/poЗ╞o vermelha.png" id="1_kpv2v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gmc3"]
+atlas = ExtResource("1_kpv2v")
+region = Rect2(0, 0, 15, 16)
+
+[resource]
+script = ExtResource("1_aau5c")
+name = "Зелье сигнализации"
+description = "Запирает все открытые дома на улице"
+usable = true
+is_infinite = false
+image = SubResource("AtlasTexture_3gmc3")

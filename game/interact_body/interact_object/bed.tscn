@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb6s1616r8ua"]
+
+[ext_resource type="PackedScene" uid="uid://dr4opwat3fsng" path="res://game/interact_body/interact_object/interact_object_class/interact_object.tscn" id="1_nptgd"]
+[ext_resource type="Texture2D" uid="uid://00o2cni4fx4x" path="res://sprites/Interior.png" id="2_30sqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeyqq"]
+atlas = ExtResource("2_30sqh")
+region = Rect2(32, 135, 29, 26)
+
+[node name="Bed" instance=ExtResource("1_nptgd")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_eeyqq")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+scale = Vector2(2.04, 1.94)
+
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2(0, 1.81)
+scale = Vector2(1.695, 1.15)

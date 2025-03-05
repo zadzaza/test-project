@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://doncilvlpe2yp"]
+
+[ext_resource type="PackedScene" uid="uid://cvkqjcuiq18ge" path="res://game/inventory/inventory_ui/inventory_ui_class/inventory_ui.tscn" id="1_iy2oh"]
+[ext_resource type="Script" path="res://game/inventory/inventory_ui/player_inventory.gd" id="2_njfx4"]
+[ext_resource type="Script" path="res://game/inventory/inventory_class/slot.gd" id="3_84fao"]
+[ext_resource type="Script" path="res://game/inventory/inventory_class/item_collection.gd" id="4_aymr8"]
+
+[sub_resource type="Resource" id="Resource_7kcnt"]
+script = ExtResource("4_aymr8")
+collection = Array[ExtResource("3_84fao")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[node name="PlayerInventory" instance=ExtResource("1_iy2oh")]
+script = ExtResource("2_njfx4")
+item_collection = SubResource("Resource_7kcnt")
+
+[node name="HFlowContainer" parent="VBoxContainer" index="0"]
+size_flags_stretch_ratio = 2.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
+modulate = Color(0.482353, 0.329412, 0.282353, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Panel" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+
+[node name="NameLbl" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/line_spacing = -2
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 6
+text = "Название"
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
+modulate = Color(0.482353, 0.329412, 0.282353, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Panel2" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+
+[node name="DescriptionLbl" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/line_spacing = -2
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 6
+text = "Описание"
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/HBoxContainer" index="1"]
+modulate = Color(0.482353, 0.329412, 0.282353, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Panel2" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UseBtn" type="Button" parent="VBoxContainer/HBoxContainer/Panel2/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(50, 12)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Использовать"
+
+[node name="RemoveBtn" type="Button" parent="VBoxContainer/HBoxContainer/Panel2/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(50, 12)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Выбросить"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Panel2/VBoxContainer/UseBtn" to="." method="_on_use_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Panel2/VBoxContainer/RemoveBtn" to="." method="_on_remove_btn_pressed"]

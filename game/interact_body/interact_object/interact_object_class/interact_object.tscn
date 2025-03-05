@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://dr4opwat3fsng"]
+
+[ext_resource type="PackedScene" uid="uid://dnr2fhai8myy2" path="res://game/interact_body/interact_body.tscn" id="1_0wth2"]
+[ext_resource type="Shader" path="res://res/outline.gdshader" id="2_1m2jb"]
+[ext_resource type="Script" path="res://game/interact_body/interact_object/interact_object_class/interact_object.gd" id="2_pwiio"]
+[ext_resource type="Texture2D" uid="uid://clr41tfrovhqv" path="res://sprites/ui/ClassicalButtons.png" id="3_u4u0x"]
+[ext_resource type="Theme" uid="uid://cvd4v2gpxfp40" path="res://res/theme.tres" id="4_ycaju"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sqgag"]
+shader = ExtResource("2_1m2jb")
+shader_parameter/top = true
+shader_parameter/left = true
+shader_parameter/right = true
+shader_parameter/bottom = true
+shader_parameter/topleft = null
+shader_parameter/topright = null
+shader_parameter/bottomleft = null
+shader_parameter/bottomright = null
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/inside = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ikfd"]
+atlas = ExtResource("3_u4u0x")
+region = Rect2(0.995202, 32.9949, 14.032, 14.0191)
+
+[node name="InteractObject" instance=ExtResource("1_0wth2")]
+collision_layer = 1
+collision_mask = 1
+script = ExtResource("2_pwiio")
+interact_text = Array[String]([])
+outline_color = Color(1, 1, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_sqgag")
+offset = Vector2(0, -3)
+
+[node name="InteractArea" parent="." index="1"]
+modulate = Color(0.895626, 0.957684, 0.284713, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+
+[node name="Message" type="MarginContainer" parent="CanvasLayer" index="0"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -5.5
+offset_top = -32.24
+offset_right = 5.5
+offset_bottom = -6.24001
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+theme = ExtResource("4_ycaju")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Message" index="0"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8ikfd")
+region_rect = Rect2(0, 0, 14, 14)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Message" index="1"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Message/MarginContainer" index="0"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="." index="3"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
